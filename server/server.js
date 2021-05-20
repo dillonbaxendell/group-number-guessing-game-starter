@@ -18,6 +18,16 @@ app.get("/guesses", (req, res) => {
   res.send(guesses);
 });
 
+
+const guessRandom = require('./modules/guessRandom')
+app.get('/guessRandom', (req, res) => {
+  console.log('got to /guessRandom');
+  
+  // respond
+  res.send(guessRandom)
+})
+
+
 app.post("/guesses", (req, res) => {
   // We want to add the incoming data to /guesses
   // req.body is made by body-parser
