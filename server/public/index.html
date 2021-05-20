@@ -15,28 +15,50 @@
     <!--  -->
     <section>
       <!-- inputs! -->
-      <input type="number" id="jamesIn" placeholder="James" />
-      <input type="number" id="dillonIn" placeholder="Dillon" />
-      <input type="number" id="owenIn" placeholder="Owen" />
-      <input type="number" id="ianIn" placeholder="Ian" />
+      <input
+        type="number"
+        min="0"
+        max="25"
+        id="player-one"
+        placeholder="James"
+      />
+      <input
+        type="number"
+        min="0"
+        max="25"
+        id="player-two"
+        placeholder="Dillon"
+      />
+      <input
+        type="number"
+        min="0"
+        max="25"
+        id="player-three"
+        placeholder="Owen"
+      />
+      <input
+        type="number"
+        min="0"
+        max="25"
+        id="player-four"
+        placeholder="Ian"
+      />
       <button id="submit-button">Submit</button>
     </section>
     <section>
-        <table>
-          <thead>
-            <tr>
-              <th>Player One</th>
-              <th>Player Two</th>
-              <th>Player Three</th>
-              <th>Player Four</th>
-            </tr>
-          </thead>     
-          <tbody id="player-choices">
-            <!-- Past player choices go here! -->
-          </tbody>
-        </table>
-
-
+      <table>
+        <thead>
+          <tr>
+            <th>Player One</th>
+            <th>Player Two</th>
+            <th>Player Three</th>
+            <th>Player Four</th>
+          </tr>
+        </thead>
+        <tbody id="player-choices">
+          <!-- Past player choices go here! -->
+        </tbody>
+      </table>
     </section>
   </body>
 </html>
