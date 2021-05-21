@@ -22,10 +22,11 @@ app.get("/guesses", (req, res) => {
 const guessRandom = require('./modules/guessRandom')
 app.get('/guessRandom', (req, res) => {
   console.log('got to /guessRandom');
+  // console.log(res.send(guessRandom));
   
   // respond
   res.send(guessRandom)
-})
+});
 
 
 app.post("/guesses", (req, res) => {

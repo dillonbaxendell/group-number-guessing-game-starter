@@ -3,8 +3,67 @@ $(document).ready(handleReady);
 function handleReady() {
   console.log("jquery is loaded!");
   getGuesses();
+  randomNumber();
   //click listener
   $("#submit-button").on("click", handleSubmit);
+}
+
+function compareNumbers(numberToCompare) {
+  // Need to store our numbers
+  // to match against /guesses
+  console.log(numberToCompare)
+  let guessNumber = { 
+    number: numberToCompare
+  
+  };
+  setTimeout(function() {console.log(guessNumber.number);}, 1000)
+
+  $.ajax({
+    method: "GET",
+    url: "/guesses"
+  }).then(function (response) {
+      console.log(response);
+      
+      
+
+
+      let results = response.filter(function (entry) {
+        return (
+          entry.player1 == guessNumber.number ||
+          entry.player2 == guessNumber.number ||
+          entry.player3 == guessNumber.number ||
+          entry.player4 == guessNumber.number)
+      })
+
+      let returnItem = []
+
+      console.log(results);
+      returnItem.push(results)
+      console.log(returnItem)
+
+      if (returnItem.indexOf(guessNumber.number)) {
+        console.log();
+        
+      }
+      
+  })
+}
+
+function randomNumber() {
+  console.log("in randomNumber");
+  // Go to server route /guessRandom
+  // Promise that you'll come back
+  // Let's see what ajax has for us
+  $.ajax({
+    method: "GET",
+    url: "/guessRandom",
+  }).then(function (response) {
+    console.log(response);
+    $("#random").empty();
+    $("#random").append(response);
+    compareNumbers(response);
+  });
+  
 }
 
 function getGuesses() {
